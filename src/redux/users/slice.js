@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { getUsers } from './thunks';
 
 const initialState = {
+  total_users: {},
   items: [],
   isLoading: false,
   error: null,
@@ -21,7 +22,8 @@ export const slice = createSlice({
         state.error = payload;
       })
       .addCase(getUsers.fulfilled, (state, { payload }) => {
-        state.items = payload;
+        state.total_users = payload.total_users;
+        state.items = [...state.items, ...payload.users];
         state.isLoading = false;
         state.error = null;
       }),

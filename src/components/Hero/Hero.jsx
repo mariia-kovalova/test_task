@@ -1,4 +1,4 @@
-import { signup } from 'shared/constants/hyperlinks';
+import { signup_link } from 'shared/constants/hyperlinks';
 import { Bg, Description, Tittle } from './Hero.styled';
 import { PrimaryLink } from 'shared/styles/components/PrimaryLink.styled';
 
@@ -13,7 +13,7 @@ export const Hero = () => {
         mind. They should also be excited to learn, as the world of Front-End
         Development keeps evolving.
       </Description>
-      <PrimaryLink href={`#${signup}`}>Sign up</PrimaryLink>
+      <PrimaryLink href={`#${signup_link}`}>Sign up</PrimaryLink>
     </Bg>
   );
 };

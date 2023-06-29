@@ -1,6 +1,6 @@
 import { nanoid } from '@reduxjs/toolkit';
 
-export const inputs = ['name', 'email', 'phone', 'position', 'photo'];
+export const inputs = ['name', 'email', 'phone', 'position_id', 'photo'];
 
 export const fields = [
   {
@@ -9,6 +9,7 @@ export const fields = [
     inputName: 'name',
     label: 'Your name',
     placeholder: 'Your name',
+    helper_text: '',
   },
   {
     id: nanoid(),
@@ -16,6 +17,7 @@ export const fields = [
     inputName: 'email',
     label: 'Email',
     placeholder: 'Email',
+    helper_text: '',
   },
   {
     id: nanoid(),
@@ -23,5 +25,6 @@ export const fields = [
     inputName: 'phone',
     label: 'Phone',
     placeholder: 'Phone',
+    helper_text: '+38 (XXX) XXX - XX - XX',
   },
 ];

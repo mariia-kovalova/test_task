@@ -1,5 +1,5 @@
 export const textSizeNormalize = name => {
-  if (name.length <= 40) return name;
-  const start = name.slice(0, 38);
+  if (name.length <= 30) return name;
+  const start = name.slice(0, 27);
   return `${start}...`;
 };

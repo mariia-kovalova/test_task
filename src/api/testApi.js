@@ -4,7 +4,7 @@ axios.defaults.baseURL =
   'https://frontend-test-assignment-api.abz.agency/api/v1';
 
 const users = {
-  getAll: async (page, count) => {
+  getAll: async ({ page, count }) => {
     const { data } = await axios.get('/users', {
       params: {
         page,

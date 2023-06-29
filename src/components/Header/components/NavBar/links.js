@@ -1,12 +1,12 @@
-import { signup, users } from 'shared/constants/hyperlinks';
+import { signup_link, users_link } from 'shared/constants/hyperlinks';
 
 export const links = [
   {
-    href: `#${users}`,
+    href: `#${users_link}`,
     text: 'Users',
   },
   {
-    href: `#${signup}`,
+    href: `#${signup_link}`,
     text: 'Sign up',
   },
 ];

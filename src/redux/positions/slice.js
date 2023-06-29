@@ -21,7 +21,7 @@ export const slice = createSlice({
         state.error = payload;
       })
       .addCase(getPositions.fulfilled, (state, { payload }) => {
-        state.items = payload;
+        state.items = payload.positions;
         state.isLoading = false;
         state.error = null;
       }),

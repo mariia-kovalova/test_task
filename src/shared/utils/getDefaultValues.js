@@ -2,7 +2,7 @@ export const getDefaultValues = inputs =>
   inputs.reduce(
     (acc, input) => ({
       ...acc,
-      [input.inputName]: '',
+      [input]: input !== 'position_id' ? '' : '1',
     }),
     {}
   );

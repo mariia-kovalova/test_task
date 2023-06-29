@@ -6,8 +6,10 @@ import { Users } from 'components/Users';
 export const App = () => (
   <>
     <Header />
-    <Hero />
-    <Users />
-    <Form />
+    <main>
+      <Hero />
+      <Users />
+      <Form />
+    </main>
   </>
 );

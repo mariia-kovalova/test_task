@@ -1,13 +1,22 @@
 const VALIDATION_MESSAGES = {
-  requiredMes: 'This field is required',
-  nameMes: {
-    format: 'Invalid name format e.g Adrian, Jacob Mercer',
-    size: 'Name may contain only 16 characters',
+  required_mes: 'This field is required',
+  name_mes: {
+    size: 'Name should contain 2-60 characters',
+    format: 'Invalid name format e.g John, Aria Mercer',
   },
-  phoneMes: 'Invalid phone format',
-  emailMes: 'Invalid email format',
-  codeMes: 'Must contain digist only',
+  email_mes: {
+    size: 'Email should contain 2-100 characters',
+    format: 'Invalid email format e.g jhon@example.com',
+  },
+  phone_mes: {
+    format: 'Invalid phone format. It should start with "+380"',
+  },
+  photo_mes: {
+    format: 'The photo must be in JPEG/JPG format',
+    size: 'The photo size must not exceed 5 MB',
+    dimentions: 'Minimum photo size required: 70x70 pixels',
+  },
 };
 
-export const { requiredMes, nameMes, phoneMes, emailMes, codeMes } =
+export const { required_mes, name_mes, email_mes, phone_mes, photo_mes } =
   VALIDATION_MESSAGES;

@@ -12,14 +12,11 @@ export const Trigger = styled.div`
 export const Text = styled.div`
   position: absolute;
   top: ${({ position }) => (position === up ? '-45px' : 'calc(100% + 10px)')};
-  left: 50%;
-  transform: translateX(-50%);
+  left: 35%;
   z-index: 1000;
 
-  display: flex;
-  flex-wrap: wrap;
-
-  width: 170px;
+  width: fit-content;
+  padding: 0 10px;
 
   background-color: transparent;
   color: transparent;
@@ -28,12 +25,13 @@ export const Text = styled.div`
   font-size: 14px;
   line-height: 1.4;
   text-align: center;
+  white-space: nowrap;
 
   transition: color 250ms ${({ theme }) => theme.cubic},
     background-color 250ms ${({ theme }) => theme.cubic};
 
   ${Trigger}:hover & {
     color: #fff;
-    background-color: #333;
+    background-color: #000000de;
   }
 `;

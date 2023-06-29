@@ -3,9 +3,7 @@ import styled from '@emotion/styled';
 export const StyledSection = styled.section`
   padding-top: 140px;
 
-  &:last-of-type {
-    padding-bottom: 100px;
-  }
+  padding-bottom: ${({ paddding_bottom }) => paddding_bottom};
 `;
 
 export const Tittle = styled.h2`

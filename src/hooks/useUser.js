@@ -6,7 +6,7 @@ import {
   selectUserIsLoading,
 } from 'redux/user/selectors';
 
-export const useStores = () => {
+export const useUser = () => {
   const token = useSelector(selectUserToken);
   const userId = useSelector(selectUserId);
   const isLoading = useSelector(selectUserIsLoading);

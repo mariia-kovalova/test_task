@@ -1,9 +1,10 @@
 import { Overlay } from 'shared/styles/components/Overlay.styled';
+import { Preloader } from '../Preloader';
 
 export const Loader = () => {
   return (
     <Overlay>
-      <div>Loading...</div>
+      <Preloader />
     </Overlay>
   );
 };
