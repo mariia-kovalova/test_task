@@ -9,7 +9,7 @@ export const fields = [
     inputName: 'name',
     label: 'Your name',
     placeholder: 'Your name',
-    helper_text: '',
+    helperText: '',
   },
   {
     id: nanoid(),
@@ -17,7 +17,7 @@ export const fields = [
     inputName: 'email',
     label: 'Email',
     placeholder: 'Email',
-    helper_text: '',
+    helperText: '',
   },
   {
     id: nanoid(),
@@ -25,6 +25,14 @@ export const fields = [
     inputName: 'phone',
     label: 'Phone',
     placeholder: 'Phone',
-    helper_text: '+38 (XXX) XXX - XX - XX',
+    helperText: '+38 (XXX) XXX - XX - XX',
   },
 ];
+
+export const upload = {
+  id: nanoid(),
+  inputName: 'photo',
+  label: 'Upload',
+  placeholder: 'Upload your photo',
+  helperText: '',
+};

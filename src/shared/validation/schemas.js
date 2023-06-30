@@ -4,7 +4,7 @@ import {
   email_mes,
   name_mes,
   phone_mes,
-  // photo_mes,
+  photo_mes,
   required_mes,
 } from './messages';
 
@@ -23,43 +23,37 @@ export const schemas = {
       .matches(phone_regexp, phone_mes.format)
       .required(required_mes),
     position_id: Yup.number().min(1).required(required_mes),
-    //   photo: Yup.mixed()
-    //     .required(required_mes)
-    //     .test(
-    //       'fileType',
-    //       phone_mes.format,
-    //       value => value && value[0]?.type === 'image/jpeg'
-    //     )
-    //     .test(
-    //       'fileSize',
-    //       photo_mes.size,
-    //       value => value && value[0]?.size <= 5 * 1024 * 1024 // 5 MB
-    //     )
-    //     .test('fileDimensions', photo_mes.dimentions, async value => {
-    //       if (value) {
-    //         const file = value[0];
-    //         const objectUrl = URL.createObjectURL(file);
+    photo: Yup.mixed()
+      .required(required_mes)
+      .test('fileType', photo_mes.format, file => file?.type === 'image/jpeg')
+      .test(
+        'fileSize',
+        photo_mes.size,
+        file => file?.size <= 5 * 1024 * 1024 // 5 MB
+      )
+      .test('fileDimensions', photo_mes.dimentions, async file => {
+        if (!file) return false;
+        const objectUrl = URL.createObjectURL(file);
 
-    //         return new Promise((resolve, reject) => {
-    //           const img = new Image();
-    //           img.src = objectUrl;
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = objectUrl;
 
-    //           img.onload = function () {
-    //             if (img.width >= 70 && img.height >= 70) {
-    //               resolve(true);
-    //             } else {
-    //               reject(false);
-    //             }
+          img.onload = function () {
+            if (img.width >= 70 && img.height >= 70) {
+              resolve(true);
+            } else {
+              reject(false);
+            }
 
-    //             URL.revokeObjectURL(objectUrl);
-    //           };
+            URL.revokeObjectURL(objectUrl);
+          };
 
-    //           img.onerror = function () {
-    //             reject(false);
-    //             URL.revokeObjectURL(objectUrl);
-    //           };
-    //         });
-    //       }
-    //     }),
+          img.onerror = function () {
+            reject(false);
+            URL.revokeObjectURL(objectUrl);
+          };
+        });
+      }),
   }),
 };

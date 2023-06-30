@@ -3,18 +3,29 @@ import styled from '@emotion/styled/macro';
 export const Label = styled.label`
   position: absolute;
   top: 50%;
-  left: 12px;
+  left: 16px;
   transform: translateY(-50%);
 
-  padding-left: 4px;
-  padding-right: 4px;
-
-  background-color: var(--bg-primary);
   color: ${({ isError }) =>
     isError ? 'var(--error)' : 'var(--input-text-color-default)'};
 
   transition: transform 250ms var(--cubic), font-size 250ms var(--cubic),
     font-weight 250ms var(--cubic);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8.6px;
+    left: -4px;
+    z-index: -1;
+
+    width: calc(100% + 8px);
+    height: 2px;
+
+    background-color: var(--bg-primary);
+    opacity: 0;
+    transition: opacity 250ms var(--cubic);
+  }
 `;
 
 export const Input = styled.input`
@@ -25,14 +36,14 @@ export const Input = styled.input`
 
   font: inherit;
   border-radius: 4px;
-  border: 1px solid
+  border: ${({ isError }) => (isError ? '2px' : '1px')} solid
     ${({ isError }) => (isError ? 'var(--error)' : 'var(--input-border-color)')};
 
   background-color: var(--bg-primary);
   color: inherit;
 
+  // instead of the placeholder user can see the label
   &::placeholder {
-    // instead of the placeholder user can see the label
     color: transparent;
   }
 
@@ -54,18 +65,9 @@ export const Group = styled.div`
     font-size: 12px;
     font-weight: 500;
     line-height: 1.6;
+
+    &::before {
+      opacity: 1;
+    }
   }
-`;
-
-export const HelperText = styled.span`
-  position: absolute;
-  bottom: -16px;
-  left: 16px;
-
-  font-size: 12px;
-  color: var(--input-text-color-default);
-`;
-
-export const Error = styled(HelperText)`
-  color: var(--error);
 `;

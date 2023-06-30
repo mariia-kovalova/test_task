@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getUsers } from './thunks';
+import { getUserById } from 'redux/user/thunks';
 
 const initialState = {
   total_users: {},
@@ -26,6 +27,9 @@ export const slice = createSlice({
         state.items = [...state.items, ...payload.users];
         state.isLoading = false;
         state.error = null;
+      })
+      .addCase(getUserById.fulfilled, (state, { payload }) => {
+        state.items = [payload.user, ...state.items.slice(0, 5)];
       }),
 });
 export const usersReducer = slice.reducer;

@@ -19,4 +19,5 @@ export const RadiosList = styled.ul`
   gap: 7px;
 
   margin-top: 11px;
+  margin-bottom: 46px;
 `;

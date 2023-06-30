@@ -1,5 +1,6 @@
-import { ErrorMessage } from '@hookform/error-message';
-import { Error, Group, HelperText, Input, Label } from './Field.styled';
+import PropTypes from 'prop-types';
+import { Group, Input, Label } from './Field.styled';
+import { InputHelper } from 'shared/components/InputHelper';
 
 export const Field = ({
   id,
@@ -7,7 +8,7 @@ export const Field = ({
   inputName,
   label,
   placeholder,
-  helper_text,
+  helperText,
   register,
   errors,
 }) => {
@@ -25,10 +26,22 @@ export const Field = ({
       <Label htmlFor={id} isError={isError}>
         {label}
       </Label>
-      {!isError && helper_text && <HelperText>{helper_text}</HelperText>}
-      <Error>
-        <ErrorMessage errors={errors} name={inputName} />
-      </Error>
+      <InputHelper
+        inputName={inputName}
+        helperText={helperText}
+        errors={errors}
+      />
     </Group>
   );
+};
+
+Field.propTypes = {
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  helperText: PropTypes.string,
+  register: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired,
 };

@@ -16,11 +16,11 @@ export const slice = createSlice({
   reducers: {},
   extraReducers: builder =>
     builder
-      .addCase(createUser.fulfilled, (state, { payload }) => {
-        state.user_id = payload.user_id;
-      })
       .addCase(getToken.fulfilled, (state, { payload }) => {
         state.token = payload.token;
+      })
+      .addCase(createUser.fulfilled, (state, { payload }) => {
+        state.user_id = payload.user_id;
       })
       .addMatcher(isAnyOf(...getActions('pending')), state => {
         state.isLoading = true;
@@ -29,7 +29,7 @@ export const slice = createSlice({
         state.isLoading = false;
         state.error = payload.response;
       })
-      .addMatcher(isAnyOf(...getActions('fulfilled')), (state, { payload }) => {
+      .addMatcher(isAnyOf(...getActions('fulfilled')), state => {
         state.isLoading = false;
         state.error = null;
       }),

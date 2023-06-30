@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Input = styled.input`
+  // visually hidden
   position: absolute;
   width: 1px;
   height: 1px;
@@ -23,7 +24,7 @@ export const Input = styled.input`
     content: '';
     position: absolute;
     left: 0;
-    top: 1px;
+    top: 0;
 
     width: 20px;
     height: 20px;
@@ -40,7 +41,7 @@ export const Input = styled.input`
   & + label:after {
     content: '';
     position: absolute;
-    top: 6px;
+    top: 5px;
     left: 5.2px;
 
     width: 10px;

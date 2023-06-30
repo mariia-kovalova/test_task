@@ -13,26 +13,16 @@ const users = {
     });
     return data;
   },
-  getById: async id => {
-    const { data } = await axios.get(`/users/${id}`);
+  create: async ({ formData, token }) => {
+    const { data } = await axios.post('/users', formData, {
+      headers: {
+        Token: token,
+      },
+    });
     return data;
   },
-  create: async (name, email, phone, position_id, photo, token) => {
-    const { data } = await axios.post(
-      '/users',
-      {
-        name,
-        email,
-        phone,
-        position_id,
-        photo,
-      },
-      {
-        headers: {
-          Token: token,
-        },
-      }
-    );
+  getById: async id => {
+    const { data } = await axios.get(`/users/${id}`);
     return data;
   },
 };
