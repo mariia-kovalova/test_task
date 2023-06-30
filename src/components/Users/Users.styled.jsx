@@ -30,3 +30,10 @@ export const Item = styled.li`
     flex-basis: calc((100% - (29px * 2)) / 3);
   }
 `;
+
+export const Error = styled.p`
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  text-align: center;
+`;

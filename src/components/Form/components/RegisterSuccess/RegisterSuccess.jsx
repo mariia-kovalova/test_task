@@ -1,6 +1,7 @@
 import { Section } from 'shared/components/Section';
 import { signup_link } from 'shared/constants/hyperlinks';
 import { Bg } from './RegisterSuccess.styled';
+import { Container } from 'shared/styles/components/Container.styled';
 
 export const RegisterSuccess = () => {
   return (
@@ -9,7 +10,9 @@ export const RegisterSuccess = () => {
       paddding_bottom="100px"
       title="User successfully registered"
     >
-      <Bg />
+      <Container>
+        <Bg />
+      </Container>
     </Section>
   );
 };
