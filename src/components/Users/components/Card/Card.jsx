@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
+import { Wrap } from './Card.styled';
 import { Avatar } from '../Avatar';
-import { Info, Wrap } from './Card.styled';
-import { textSizeNormalize } from 'shared/utils/textSizeNormalize';
-import { Tooltip } from 'shared/components/ToolTip';
+import { Info } from '../Info';
 
 export const Card = ({ name, email, phone, position, photo }) => {
   const info = [
@@ -14,15 +13,11 @@ export const Card = ({ name, email, phone, position, photo }) => {
   return (
     <Wrap>
       <Avatar photo={photo} name={name} />
-      <Tooltip ariaLabel="name" text={name}>
-        <Info>{textSizeNormalize(name)}</Info>
-      </Tooltip>
+      <Info text={name} ariaLabel="name" />
       <ul>
         {info.map(({ data, ariaLabel }) => (
           <li key={data}>
-            <Tooltip ariaLabel={ariaLabel} text={data}>
-              <Info>{textSizeNormalize(data)}</Info>
-            </Tooltip>
+            <Info text={data} ariaLabel={ariaLabel} />
           </li>
         ))}
       </ul>

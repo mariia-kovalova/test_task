@@ -15,8 +15,3 @@ export const Wrap = styled.div`
   border-radius: 10px;
   text-align: center;
 `;
-
-export const Info = styled.p`
-  cursor: pointer;
-  text-align: center;
-`;

@@ -3,6 +3,7 @@ import { Group, Input, InputText, Label, LabelText } from './Upload.styled';
 import { InputHelper } from 'shared/components/InputHelper';
 import { useState } from 'react';
 import { Controller } from 'react-hook-form';
+import { textSizeNormalize } from 'shared/utils/textSizeNormalize';
 
 export const Upload = ({
   id,
@@ -21,7 +22,7 @@ export const Upload = ({
       <Label htmlFor={id}>
         <LabelText isError={isError}>{label}</LabelText>
         <InputText isError={isError}>
-          {(file && file.name) || placeholder}
+          {(file && textSizeNormalize(file.name, 29)) || placeholder}
         </InputText>
       </Label>
       <Controller
